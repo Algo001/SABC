@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Church Homepage</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+/* Define color variables */
+:root {
+  --primary-color: #007BFF;
+  --secondary-color: #207fe5;
+  --background-gradient: linear-gradient(to bottom right, #FF7171, #86B5FF, #8CEC97, #B88A4C, #F2F2F2, #2B2B2B);
+  --text-color: #000;
+}
+
+/* Common styles */
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    margin: 1em auto;
+    width: 100%;
+    padding: 1em;
+    max-width: none;
+  }
+
+  .card {
+    flex-grow: 1;
+    width: 100%;
+    margin-bottom: 1em;
+    margin-left: 0;
+  }
+
+  .card:nth-child(2n),
+  .card:nth-child(3n) {
+    flex-grow: 1;
+    width: 100%;
+    background: none;
+    backdrop-filter: none;
+  }
+
+  .swiper-container {
+    height: 300px;
+  }
+
+  .swiper-slide .caption {
+    font-size: 1em;
+  }
+
+  .testimonial-container,
+  .event-container,
+  .about-container {
+    width: 100%;
+    max-width: none;
+    padding: 1em;
+    margin: 1em auto;
+  }
+}
+
+/* Remaining styles remain unchanged */
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.swiper-slide .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 1em;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-pagination {
+  display: none;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 1em auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+.card {
+  flex-grow: 1;
+  margin-bottom: 2em;
+  padding: 2em;
+  background: linear-gradient(135deg, #1e3c72 0%,#2a5298 100%);
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  transition: transform .5s ease;
+  width: calc(33.33% - 1em);
+  margin-left: 10px;
+}
+
+.card:nth-child(2n) {
+  flex-grow: 1;
+  background: linear-gradient(135deg, #1e3c72 0%,#2a5298 100%);
+  backdrop-filter: blur(10px);
+}
+
+.card:nth-child(3n) {
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.form-group {
+  margin-bottom: 2em;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.8);
+  font-size: 1em;
+}
+
+.button1 {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color .3s ease;
+  font-size: 1em;
+  align-items: center;
+}
+
+.button1:hover {
+  background-color: #207fe5;
+}
+
+/* Feature 3: About Us section */
+.about-container {
+  margin: 2em auto;
+  padding: 2em;
+  background: #f7f7f7;
+  color: #333;
+  border-radius: 15px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  max-width: 800px;
+}
+
+.about-container h2 {
+  margin-bottom: 1.4em;
+  text-align: center;
+  font-size: 2em;
+  text-decoration-color: #25282d;
+}
+
+.about-container p {
+  margin-bottom: 1em;
+}
+.card-container {
+    width: 100%;
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.card {
+    margin-bottom: 20px; /* Add some bottom margin to separate cards */
+}
+
+.responsive-video-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Adds shadow for 3D effect */
+    border: 1px solid #ffffff; /* Adds a border around the video */
+    margin: 0px auto; /* Centers the card horizontally */
+    background: #fff; /* Adds a white background */
+}
+
+.responsive-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.more-sermons-button, .youtube-channel-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2; /* Light gray background */
+    color: #333; /* Dark gray text */
+    text-decoration: none; /* Removes underline */
+    padding: 10px 20px; /* Adds some padding */
+    border-radius: 5px; /* Rounds the corners */
+    font-weight: bold; /* Makes the text bold */
+    text-align: center; /* Centers the text */
+    margin-top: 20px; /* Adds some space above the button */
+    transition: background-color 0.3s ease; /* Adds a smooth transition on hover */
+}
+
+.more-sermons-button:hover, .youtube-channel-button:hover {
+    background-color: #2a5298; /* Slightly darker shade on hover */
+    color: #F2F2F2;
+}
+
+  </style>
+</head>
+<body>
+  <div id="homepageCarousel" class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="1-bg.jpg" alt="Image 1">
+        <div class="caption">Welcome to our website! We invite you to embark on a journey of inspiration, connection, and growth with us.</div>
+      </div>
+  </div>
+
+  <!-- About Us section -->
+  <div class="about-container">
+    <h2>About Us</h2>
+    <p>SABC, the South Asian Bible Church, is a Christ-centered community that prioritizes the well-being of families and stands against persecution. Rooted in the teachings of Jesus, we provide a nurturing environment for spiritual growth and offer support to individuals of all ages. We are committed to upholding the values of love, compassion, and unity in the face of opposition. Through worship, fellowship, and biblical teachings, we equip our members to navigate life's challenges with faith and resilience. Join us at SABC as we embrace Christ, uplift families, and stand firm against persecution, making a positive impact in our communities and beyond.</p>
+  </div>
+
+  <!-- Card container for hierarchical structure -->
+  <div class="card-container">
+    <!-- Mission and Vision card -->
+    <div class="card">
+      <h2>Our Mission and Vision</h2>
+      <div class="content">
+        <h3>Mission</h3>
+        <p>Our mission is to guide people of all backgrounds into a personal relationship with Jesus Christ.</p>
+        <h3>Vision</h3>
+        <p>Our vision is to build a vibrant, life-giving church community that positively impacts our city and beyond with the love of Christ.</p>
+      </div>
+    </div>
+
+    <!-- Prayer request card -->
+
+    <!-- Prayer request card -->
+    <div class="card">
+      <h2>Submit a Prayer Request</h2>
+      <form action="https://formspree.io/f/mbjebrgr" method="POST">
+        <div class="form-group">
+          <label for="prayerRequestName">Your Name</label>
+          <input type="text" id="prayerRequestName" name="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="prayerRequestText">Prayer Request</label>
+          <textarea id="prayerRequestText" name="prayer_request" placeholder="Enter your prayer request"></textarea>
+        </div>
+        <button class="button1" type="submit">Submit Request</button>
+      </form>
+    </div>
+
+    <div class="card-container">
+      <!-- Mission and Vision card -->
+      <div class="card">
+        <h2>Watch our latest sermon</h2>
+        <div class="content">
+          <div class="responsive-video-container">
+            <iframe src="https://www.youtube.com/embed/-dqgJceKkcA?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <a href="https://www.facebook.com/profile.php?id=100060701835263" class="more-sermons-button" target="_blank">Watch More Sermons on Facebook</a>
+          <a href="https://www.youtube.com/@southasianbiblechurchofficial/videos" class="youtube-channel-button" target="_blank">Subscribe to Our YouTube Channel</a>
+        </div>
+      </div>
+    </div>
+    
+
+
+  
+
+  <footer class="glass-footer">
+    <p>&copy; SABC Church. All Rights Reserved.</p>
+  </footer>
+
+</body>
+
+</html>

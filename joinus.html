@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #1e3c72;
+        color: #ffffff;
+        margin-top: 40px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      .card {
+        background: linear-gradient(135deg, #1e3c72 0%,#2a5298 100%);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 40px;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 32px;
+        color: #ffffff;
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
+
+      p {
+        line-height: 1.6;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .links {
+        display: flex;
+        justify-content: center;
+      }
+
+      .links a {
+        margin: 0 10px;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .links a:nth-child(1) {
+        background: linear-gradient(to right, #3b5998, #0078FF);
+      }
+
+      .links a:nth-child(2) {
+        background: linear-gradient(to right, #FF0000, #FF5722);
+      }
+
+      .links a:hover {
+        background-color: #4a3dbf;
+      }
+
+     
+
+      .footer {
+        color: #000000;
+      }
+
+      /* Redesigned additional card */
+      .additional-card {
+        background: linear-gradient(135deg, #1e3c72 0%,#2a5298 100%);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .additional-card h2 {
+        font-size: 28px;
+        color: #ffffff;
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
+
+      .additional-card .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .responsive-video-container {
+        position: relative;
+        overflow: hidden;
+        padding-top: 56.25%;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        background: #fff;
+        width: 100%;
+      }
+
+      .responsive-video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .responsive-video-container:hover iframe {
+        transform: scale(1.01);
+      }
+
+      .more-sermons-button,
+      .youtube-channel-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f2f2f2;
+        color: #333;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .more-sermons-button:hover,
+      .youtube-channel-button:hover {
+        background-color: #2a5298;
+        color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><i class="fas fa-church"></i> Welcome to Our Church</h1>
+    </header>
+    <div class="card">
+      <h2>Join Us</h2>
+      <p>Join us every Sunday at 2:00 PM Canada time for our uplifting worship service.</p>
+      <p>Experience the power of community, inspiring worship, and transformative teachings.</p>
+      <div class="links">
+        <a href="https://www.facebook.com/profile.php?id=100060701835263" target="_blank"><i class="fab fa-facebook-f"></i> Join us on Facebook</a>
+        <a href="https://www.youtube.com/@southasianbiblechurchofficial/videos" target="_blank"><i class="fab fa-youtube"></i> Watch us on YouTube</a>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <!-- Mission and Vision card -->
+      <div class="additional-card">
+        <h2>Watch our latest sermon</h2>
+        <div class="content">
+          <div class="responsive-video-container">
+            <iframe src="https://www.youtube.com/embed/-dqgJceKkcA?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; SABC Church. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

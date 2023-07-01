@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABC Church</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Additional CSS code can be added here if needed */
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img class="logo" src="logo.png" alt="Church Logo" />
+        <div class="flex-container">
+            <a href="#" data-page="home.html">Home</a>
+            <a href="#" data-page="whoweare.html">Who We Are</a>
+            <a href="#" data-page="joinus.html">Join Us</a>
+            <a href="#" data-page="resources.html">Ministries</a>
+            <a href="#" data-page="stayconnected.html">Stay Connected</a>
+        </div>
+        <div class="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <main id="main-content"></main>
+ 
+    <script> 
+        document.addEventListener("DOMContentLoaded", function() {
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        if (hamburgerMenu) {
+          hamburgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            this.classList.toggle('cross');
+            const navMenu = document.querySelector('.navbar .flex-container');
+            if (navMenu) {
+              if (navMenu.style.display === 'none' || navMenu.style.display === '') {
+                navMenu.style.display = 'flex';
+              } else {
+                navMenu.style.display = 'none';
+              }
+            }
+          });
+        }
+        
+        document.querySelectorAll('.navbar a').forEach(link => {
+          link.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (hamburgerMenu) {
+              hamburgerMenu.classList.remove('cross');
+            }
+            const filename = this.getAttribute('data-page');
+            fetch(filename)
+              .then(response => response.text())
+              .then(data => {
+                const mainContent = document.querySelector('#main-content');
+                if (mainContent) {
+                  mainContent.innerHTML = data;
+                  setupPageScripts(filename);  // New Function added
+                }
+                const navMenu = document.querySelector('.navbar .flex-container');
+                if (navMenu) {
+                  if (window.innerWidth <= 768) {
+                    navMenu.style.display = 'none'; // Hide the navigation menu for mobile view
+                  }
+                }
+              })
+              .catch(error => console.error('Error:', error));
+          });
+        });
+      
+        function setupPageScripts(filename) {
+          switch(filename) {
+            case 'resources.html':
+              const loadASRAButton = document.getElementById('loadASRA');
+              const loadFBCButton = document.getElementById('loadFBC');
+              const ministryContent = document.getElementById('ministryContent');
+      
+              if (loadASRAButton) {
+                loadASRAButton.addEventListener('click', function() {
+                  fetch('asra.html')
+                    .then(response => response.text())
+                    .then(data => {
+                      ministryContent.innerHTML = data;
+                    })
+                    .catch(error => {
+                      console.error('Error:', error);
+                    });
+                });
+              }
+      
+              if (loadFBCButton) {
+                loadFBCButton.addEventListener('click', function() {
+                  fetch('fbc.html')
+                    .then(response => response.text())
+                    .then(data => {
+                      ministryContent.innerHTML = data;
+                    })
+                    .catch(error => {
+                      console.error('Error:', error);
+                    });
+                });
+              }
+              break;
+      
+            // other cases for other pages can go here
+          }
+        }
+      
+        document.querySelector('.navbar a[data-page="home.html"]').click();
+      });
+      
+    </script>
+</body>
+</html>
